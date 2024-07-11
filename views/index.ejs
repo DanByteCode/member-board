@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Members Board</title>
+  <link rel="shortcut icon" href="/icons/acount.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+  <% if (user) {%>
+    <header class="header-bar">
+      <a href="/">
+        <h1>Members</h1>
+      </a>
+      <details>
+        <summary>
+          <img src="/icons/acount.svg" width="18">
+          <%= user.nickname %>
+        </summary>
+        <ul class="menu">
+          <li>
+            <%= user.admin ? '• Administrator' : (user.member ? '• Member' : '• Registred' ) %>
+          </li>
+          <hr>
+          <li><a href="/enter-code">Enter Code</a></li>
+          <li><a href="/log-out">Log-out</a></li>
+        </ul>
+      </details>
+    </header>
+    <% } else { %>
+      <header class="header-bar">
+        <a href="/">
+          <h1>Members</h1>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/sign-up">Sign-in</a></li>
+          </ul>
+        </nav>
+      </header>
+      <% } %>
+        <% if (user) {%>
+          <a href="new-post" class="tag">
+            <img src="/icons/add.svg" width="18">ADD POST
+          </a>
+          <% } %>
+            <main class="board">
+              <% messages.forEach((i)=>{ %>
+                <article>
+                  <% if (user?.member) {%>
+                    <span class="username">
+                      <img src="/icons/user.svg" width="18">
+                      <%= i.authorName %>
+                    </span>
+                    <span class="options">
+                      <%= i.date %>
+                    </span>
+                    <% } %>
+                      <h3>
+                        <%= i.title || '' %>
+                      </h3>
+                      <p>
+                        <%= i.message %>
+                      </p>
+                      <% if (user?.admin || user?.nickname==i.authorName) {%>
+                        <span class="delete">
+                          <a href="delete/<%= i.id%>">
+                            <img src="/icons/delete.svg" alt="delete" title="Delete post">
+                          </a>
+                        </span>
+                        <% } %>
+                </article>
+                <% }) %>
+            </main>
+</body>
+
+</html>

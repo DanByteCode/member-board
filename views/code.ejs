@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Code</title>
+  <link rel="shortcut icon" href="/icons/acount.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+  <header class="header-bar">
+    <a href="/">
+      <h1>Members</h1>
+    </a>
+    <details>
+      <summary>
+        <img src="/icons/acount.svg" width="18">
+        <%= user.nickname %>
+      </summary>
+      <ul class="menu">
+        <li>
+          <%= user.admin ? '• Administrator' : (user.member ? '• Member' : '• Registred' ) %>
+        </li>
+        <hr>
+        <li><a href="/enter-code">Enter Code</a></li>
+        <li><a href="/log-out">Log-out</a></li>
+      </ul>
+    </details>
+  </header>
+  <h2>Login</h2>
+  <form class="single-form" method="POST">
+    <p>Enter the code to be a member with which you can view the Author and Date of the messages.</p>
+    <label for="code">Code:</label>
+    <input name="code" type="password" placeholder="******" minlength="4" maxlength="14" required />
+    <button>Enter</button>
+  </form>
+  <% if (message) { %>
+    <span>
+      <%= message %>
+    </span>
+    <% } %>
+</body>
+
+</html>

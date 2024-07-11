@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>New Post</title>
+  <link rel="shortcut icon" href="/icons/acount.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+  <header class="header-bar">
+    <a href="/">
+      <h1>Members</h1>
+    </a>
+    <details>
+      <summary>
+        <img src="/icons/acount.svg" width="18">
+        <%= user.nickname %>
+      </summary>
+      <ul class="menu">
+        <li>
+          <%= user.admin ? '• Administrator' : (user.member ? '• Member' : '• Registred' ) %>
+        </li>
+        <hr>
+        <li><a href="/enter-code">Enter Code</a></li>
+        <li><a href="/log-out">Log-out</a></li>
+      </ul>
+    </details>
+  </header>
+  <h2>Create Post</h2>
+  <form class="single-form post" method="POST">
+    <h3><%= user.nickname %></h3>
+    <label for="title">Title:</label>
+    <input name="title" type="text" placeholder="Title..." minlength="4" maxlength="32" required autofocus/>
+    <label for="message">Content:</label>
+    <textarea name="message" placeholder="Text..." minlength="4" maxlength="64" required></textarea>
+    <button>SEND</button>
+  </form>
+</body>
+
+</html>
