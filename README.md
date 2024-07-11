@@ -11,8 +11,9 @@ CODE: `ODIN`
 Finally, there is the Administrator role, which can delete posts from any user.
 ## CONFIGURATION
 To start the project you need to provide the environment variables.
-- MDB: Your connection url of the MongoDB database
+- MDB: Your connection url of the MongoDB database (Obligatory)
 - SECRET: The secret word to manage sessions
 - SALT_ROUNDS: Salt rounds for password encryption
 - CODE_MEMBER: Membership code
 - CODE_ADMIN: Code to be an administrator
+You can see the default values ​​in `config.js`
