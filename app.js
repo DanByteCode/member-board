@@ -33,5 +33,5 @@ app.use('/', indexRouter)
 app.use(errorHandler)
 
 app.listen(config.PORT, () => {
-  console.log('Server online: http://localhost:3000')
+  console.log('Server online: http://localhost:' + config.PORT)
 })

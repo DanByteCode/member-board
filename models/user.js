@@ -10,7 +10,7 @@ const UserSchema = new Schema({
   messages: [{ type: Schema.ObjectId, ref: 'Post' }]
 })
 const format = {
-  transform: () => (doc, ret, options) => {
+  transform: (doc, ret, options) => {
     ret.id = ret._id
     delete ret.username
     delete ret.password
@@ -19,7 +19,7 @@ const format = {
     return ret
   }
 }
-UserSchema.set('toObject', format)
+UserSchema.set('toJSON', format)
 UserSchema.set('toString', format)
 
 export const User = mongoose.model('User', UserSchema)
