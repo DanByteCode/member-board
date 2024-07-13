@@ -16,4 +16,5 @@ To start the project you need to provide the environment variables.
 - SALT_ROUNDS: Salt rounds for password encryption
 - CODE_MEMBER: Membership code
 - CODE_ADMIN: Code to be an administrator
+
 You can see the default values ​​in `config.js`
