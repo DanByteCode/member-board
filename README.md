@@ -6,7 +6,7 @@ The user can also delete their own posts if they wish.
 ### MEMBER ROLE
 There is also a section to be promoted as **Member** which will be able to view the authors and dates of all the publications.
 To obtain this rank you must enter the following code:
-CODE: `ODIN`
+```ODIN```
 ### ADMINISTRATOR
 Finally, there is the Administrator role, which can delete posts from any user.
 ## CONFIGURATION
